@@ -222,15 +222,39 @@
 
 <script src="../js/main.js"></script>
 <script>
+var hiddenKeywords = {
+  '奈瀬':     '../hidden/nase/index.html',
+  '白奈':     '../hidden/shirana/index.html',
+  '地下書庫': '../hidden/chika/index.html',
+  '第七閲覧室': '../hidden/7th/index.html',
+  '特別保存': '../hidden/tokubestu/index.html',
+  '統一郎':   '../hidden/toichiro/index.html',
+  '澄奈':     '../hidden/suminashi/index.html',
+  '令和三年': '../hidden/r3/index.html',
+  '封印':     '../hidden/fuuin/index.html',
+  '白紙':     '../hidden/hakushi/index.html'
+};
+
 function doSearch(e) {
   e.preventDefault();
   var q = document.getElementById('search-input').value.trim();
   var header = document.getElementById('result-header');
   var body = document.getElementById('result-body');
+
   if (q === '') {
     body.innerHTML = '<p class="search-result-empty">検索キーワードを入力してください。</p>';
     return;
   }
+
+  if (hiddenKeywords[q]) {
+    header.textContent = '検索結果：「' + q + '」';
+    body.innerHTML = '<p class="small-text archive-code">QUERY_LOG : RECORDED / SEARCHING...</p>';
+    setTimeout(function() {
+      window.location.href = hiddenKeywords[q];
+    }, 800);
+    return;
+  }
+
   header.textContent = '検索結果：「' + q + '」';
   body.innerHTML = '<p class="search-result-none">該当する資料は見つかりません。</p>'
     + '<p class="small-text">・キーワードを変えて再度お試しください。</p>'

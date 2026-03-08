@@ -1,0 +1,77 @@
+/* 澄奈市立保存図書館 - 隠しページ共通スタイル */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #050505;
+  color: #b0b0b0;
+  font-family: "Courier New", monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  cursor: default;
+}
+
+#hidden-marker {
+  font-size: 9px;
+  color: #2a2a2a;
+  letter-spacing: 3px;
+  margin-bottom: 80px;
+  text-transform: none;
+}
+
+#main-text {
+  font-family: "MS Mincho", "游明朝", "ヒラギノ明朝 ProN", serif;
+  font-size: 17px;
+  color: #c0c0b8;
+  line-height: 2.2;
+  max-width: 560px;
+  padding: 0 20px;
+}
+
+#sub-text {
+  font-size: 10px;
+  color: #2e2e2e;
+  margin-top: 60px;
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+}
+
+#access-log {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 8px;
+  color: #1e1e1e;
+  letter-spacing: 0.5px;
+}
+
+#back-link {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 9px;
+  color: #2a2a2a;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+#back-link:hover {
+  color: #555555;
+}
+
+::selection {
+  background-color: #1a1a1a;
+  color: #888888;
+}
