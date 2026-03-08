@@ -858,3 +858,135 @@ hr {
 .hours-day  { width: 100px; }
 .hours-time { width: 120px; }
 .hours-note { color: #666666; }
+
+/* ============================================
+   guide.html / contact.html 用スタイル
+   ============================================ */
+
+.guide-table {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.guide-table td {
+  padding: 2px 0;
+  line-height: 1.9;
+}
+
+.guide-item {
+  color: #2C2C2C;
+}
+
+.required {
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.contact-form-table {
+  font-size: 12px;
+  width: 100%;
+}
+
+.contact-form-table td {
+  padding: 5px 6px;
+  vertical-align: middle;
+}
+
+.contact-label {
+  width: 130px;
+  color: #1a3a5c;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: top;
+  padding-top: 8px;
+}
+
+.contact-input {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 13px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 3px 5px;
+  color: #2C2C2C;
+}
+
+.contact-textarea {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 13px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 4px 5px;
+  color: #2C2C2C;
+  resize: vertical;
+}
+
+.contact-select {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 3px 4px;
+  color: #2C2C2C;
+}
+
+.contact-button {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  border: 1px solid #1a3a5c;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+.contact-reset {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  background-color: #e8e0d0;
+  color: #2C2C2C;
+  border: 1px solid #B8A898;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+/* ============================================
+   login.html 用スタイル
+   ============================================ */
+
+.login-form-table {
+  font-size: 12px;
+}
+
+.login-form-table td {
+  padding: 6px 4px;
+  vertical-align: middle;
+}
+
+.login-label {
+  width: 90px;
+  color: #1a3a5c;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.login-input {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 4px 6px;
+  color: #2C2C2C;
+  letter-spacing: 1px;
+}
+
+.login-button {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  background-color: #2a2a3a;
+  color: #F5F0E8;
+  border: 1px solid #2a2a3a;
+  padding: 4px 20px;
+  cursor: pointer;
+}
