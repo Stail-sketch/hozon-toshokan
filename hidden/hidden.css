@@ -48,6 +48,16 @@ body {
   letter-spacing: 1px;
 }
 
+#page-number {
+  position: fixed;
+  bottom: 24px;
+  right: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  color: #333333;
+  letter-spacing: 1px;
+}
+
 #access-log {
   position: fixed;
   bottom: 10px;
