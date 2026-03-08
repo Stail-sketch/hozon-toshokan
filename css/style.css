@@ -1,0 +1,379 @@
+/* 澄奈市立保存図書館 - アーカイブサイト */
+/* Last modified: 2021.03.14 */
+
+/* ============================================
+   基本設定
+   ============================================ */
+
+body {
+  background-color: #F5F0E8;
+  color: #2C2C2C;
+  font-family: "MS Mincho", "游明朝", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", serif;
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #1a3a5c;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #8B4513;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #5a3a7c;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #B8A898;
+  margin: 6px 0;
+}
+
+/* ============================================
+   アクセス警告（極小・目立たない）
+   ============================================ */
+
+#access-warning {
+  background-color: #F5F0E8;
+  color: #B8A898;
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  padding: 2px 6px;
+  text-align: right;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e8e0d0;
+}
+
+/* ============================================
+   ヘッダー
+   ============================================ */
+
+#header-cell {
+  background-color: #1a3a5c;
+  padding: 0;
+}
+
+#header {
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  padding: 12px 16px 10px 16px;
+}
+
+#header-title {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "MS Mincho", "游明朝", "ヒラギノ明朝 ProN", serif;
+  letter-spacing: 4px;
+  margin-bottom: 2px;
+}
+
+#header-title-en {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #c8d8e8;
+  margin-bottom: 4px;
+}
+
+#header-dates {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #a8b8c8;
+  letter-spacing: 1px;
+}
+
+.header-hr {
+  border-top: 2px solid #1a3a5c;
+  margin: 0;
+}
+
+/* ============================================
+   メインテーブル
+   ============================================ */
+
+#main-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 8px auto;
+  padding: 0 8px;
+}
+
+/* ============================================
+   左サイドバー
+   ============================================ */
+
+#sidebar {
+  width: 160px;
+  min-width: 160px;
+  vertical-align: top;
+  padding: 4px 0;
+}
+
+.nav-box {
+  background-color: #ede8dc;
+  border: 1px solid #B8A898;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.nav-box-notice {
+  background-color: #f0ece0;
+  border: 1px solid #8B4513;
+}
+
+.nav-title {
+  font-weight: bold;
+  font-size: 12px;
+  color: #1a3a5c;
+  margin-bottom: 2px;
+}
+
+.nav-hr {
+  border-top: 1px solid #B8A898;
+  margin: 4px 0;
+}
+
+.nav-item {
+  padding: 2px 0;
+  font-size: 12px;
+  color: #2C2C2C;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: #8B4513;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.nav-current {
+  color: #1a3a5c;
+  font-weight: bold;
+}
+
+.nav-sub {
+  padding: 1px 0;
+  font-size: 11px;
+  color: #555555;
+  padding-left: 4px;
+}
+
+.nav-sub:hover {
+  color: #8B4513;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.nav-restricted {
+  color: #888888;
+  font-size: 11px;
+}
+
+.nav-info {
+  font-size: 11px;
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.nav-info-small {
+  font-size: 10px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.access-level {
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  color: #1a3a5c;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* ============================================
+   メインコンテンツ
+   ============================================ */
+
+#main-content {
+  vertical-align: top;
+  padding: 4px 0 4px 8px;
+}
+
+/* コンテンツテーブル（各セクション） */
+.content-table {
+  border-collapse: collapse;
+  border: 1px solid #B8A898;
+  font-size: 13px;
+}
+
+.content-header-cell {
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 10px;
+  letter-spacing: 2px;
+}
+
+.content-body-cell {
+  background-color: #F5F0E8;
+  padding: 10px 14px;
+  line-height: 1.9;
+}
+
+/* 閉館のお知らせ */
+.closure-notice {
+  padding: 4px 0;
+}
+
+.katakana-text {
+  font-size: 14px;
+  line-height: 2.0;
+  color: #2C2C2C;
+  margin: 0;
+}
+
+.signature {
+  font-size: 13px;
+  line-height: 2.0;
+  color: #2C2C2C;
+  margin: 0;
+}
+
+.archive-code {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #888888;
+}
+
+/* 更新履歴テーブル */
+.update-table {
+  width: 100%;
+  font-size: 12px;
+}
+
+.update-date {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #555555;
+  white-space: nowrap;
+  padding-right: 12px;
+  vertical-align: top;
+  width: 90px;
+}
+
+.update-text {
+  color: #2C2C2C;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.update-suspicious .update-date,
+.update-suspicious .update-text {
+  /* 一見すると普通だが読むと不穏 */
+}
+
+.restricted-link {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #8B0000;
+}
+
+/* ご案内テキスト */
+#main-content p {
+  margin: 4px 0;
+}
+
+.small-text {
+  font-size: 11px;
+  color: #666666;
+}
+
+/* ============================================
+   訪問者カウンター
+   ============================================ */
+
+#visitor-counter {
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  color: #888888;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid #d8d0c0;
+  background-color: #f0ece0;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   フッター
+   ============================================ */
+
+.footer-hr {
+  border-top: 2px solid #1a3a5c;
+  margin: 8px 0 0 0;
+}
+
+#footer {
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  padding: 10px 16px 6px 16px;
+  position: relative;
+}
+
+.footer-main {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #c8d8e8;
+}
+
+.footer-note {
+  font-size: 10px;
+  color: #8898a8;
+}
+
+/* ページ番号 */
+#page-number {
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  color: #6878a0;
+  padding: 4px 0;
+  letter-spacing: 1px;
+}
+
+/* フィクション表記（極小・目立たない） */
+.footer-fiction {
+  font-size: 8px;
+  color: #4a5a7a;
+  text-align: right;
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid #2a4a6c;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   点滅テキスト（一部使用）
+   ============================================ */
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1.8s step-end infinite;
+}
+
+/* ============================================
+   選択テキストのスタイル
+   ============================================ */
+
+::selection {
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+}
