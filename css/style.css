@@ -471,3 +471,390 @@ hr {
   color: #2C2C2C;
   line-height: 1.8;
 }
+
+/* ============================================
+   map.html 用スタイル
+   ============================================ */
+
+/* 凡例 */
+.legend-table {
+  font-size: 12px;
+}
+
+.legend-box {
+  border: 1px solid #B8A898;
+  padding: 3px 8px;
+}
+
+.legend-open  { background-color: #F5F0E8; }
+.legend-closed { background-color: #e0d8c8; }
+.legend-restricted { background-color: #d8c8c0; }
+
+.legend-label {
+  font-size: 12px;
+  padding-left: 4px;
+}
+
+/* 館内フロアプラン */
+.floorplan-table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.fp-room {
+  border: 1px solid #B8A898;
+  padding: 8px 10px;
+  text-align: center;
+  background-color: #F5F0E8;
+  min-width: 100px;
+  vertical-align: middle;
+}
+
+.fp-caption {
+  display: block;
+  font-size: 10px;
+  color: #666666;
+  margin-top: 2px;
+}
+
+.fp-corridor {
+  border: 1px solid #B8A898;
+  padding: 4px 8px;
+  background-color: #e8e4da;
+  text-align: center;
+  font-size: 10px;
+  color: #888888;
+  letter-spacing: 4px;
+}
+
+.fp-closed {
+  background-color: #e0d8c8;
+}
+
+.fp-restricted {
+  background-color: #d8c8c0;
+}
+
+.fp-staff {
+  background-color: #dce4ec;
+}
+
+.fp-small {
+  font-size: 11px;
+  color: #666666;
+}
+
+.fp-status-closed {
+  display: block;
+  font-size: 11px;
+  color: #8B0000;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.fp-status-restricted {
+  display: block;
+  font-size: 11px;
+  color: #8B0000;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+/* 室名一覧テーブル */
+.room-list-table {
+  font-size: 12px;
+  width: 100%;
+}
+
+.room-list-table td {
+  padding: 3px 6px;
+  border-bottom: 1px dotted #d0c8b8;
+  vertical-align: middle;
+}
+
+.room-list-header td {
+  font-weight: bold;
+  color: #1a3a5c;
+  border-bottom: 1px solid #B8A898;
+  padding: 4px 6px;
+}
+
+.status-ok   { color: #555555; font-size: 11px; }
+.status-warn { color: #8B4513; font-size: 11px; }
+.status-closed { color: #8B0000; font-size: 11px; font-weight: bold; }
+
+/* ============================================
+   staff.html 用スタイル
+   ============================================ */
+
+.staff-card-table {
+  margin-bottom: 0;
+}
+
+.staff-header-cell {
+  background-color: #2a4a6c;
+  color: #F5F0E8;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+
+.staff-position {
+  font-size: 11px;
+  font-weight: normal;
+  color: #c8d8e8;
+  margin-left: 8px;
+}
+
+.staff-detail-table {
+  font-size: 12px;
+  width: 100%;
+}
+
+.staff-detail-table td {
+  padding: 3px 6px;
+  border-bottom: 1px dotted #d8d0c0;
+  vertical-align: top;
+}
+
+.staff-label {
+  width: 80px;
+  color: #555555;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.staff-value {
+  color: #2C2C2C;
+}
+
+.staff-missing {
+  color: #8B0000;
+  font-size: 12px;
+}
+
+/* ============================================
+   diary.html 用スタイル
+   ============================================ */
+
+.diary-entry {
+  padding: 6px 0;
+  border-bottom: 1px dotted #d8d0c0;
+  margin-bottom: 4px;
+}
+
+.diary-entry:last-child {
+  border-bottom: none;
+}
+
+.diary-date {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #1a3a5c;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.diary-text {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #2C2C2C;
+  padding-left: 8px;
+}
+
+.diary-deleted {
+  background-color: #ede8dc;
+}
+
+.diary-deleted .diary-date {
+  color: #888888;
+}
+
+.diary-deleted .diary-text {
+  color: #888888;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
+.diary-entry-tense .diary-text {
+  color: #3a3a3a;
+}
+
+.diary-entry-final {
+  background-color: #f0ece0;
+  padding: 8px;
+  border: 1px solid #d0c8b8;
+}
+
+.diary-entry-final .diary-date {
+  color: #8B0000;
+}
+
+.diary-entry-final .diary-text {
+  color: #2C2C2C;
+}
+
+/* ============================================
+   collection.html 用スタイル
+   ============================================ */
+
+.search-form-table {
+  font-size: 12px;
+}
+
+.search-form-table td {
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+.search-label {
+  width: 100px;
+  color: #1a3a5c;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.search-input {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 13px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 3px 5px;
+  color: #2C2C2C;
+}
+
+.search-button {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  border: 1px solid #1a3a5c;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+
+.search-result-empty {
+  color: #888888;
+  font-size: 12px;
+}
+
+.search-result-none {
+  color: #8B4513;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.ndc-table {
+  font-size: 12px;
+  width: 100%;
+}
+
+.ndc-table td {
+  padding: 3px 8px;
+  border-bottom: 1px dotted #d8d0c0;
+}
+
+.ndc-num {
+  width: 50px;
+  font-family: "Courier New", monospace;
+  text-align: center;
+}
+
+.ndc-name {
+  color: #2C2C2C;
+  padding-right: 24px;
+}
+
+/* ============================================
+   access.html 用スタイル
+   ============================================ */
+
+.closure-banner-cell {
+  background-color: #8B0000;
+  color: #F5F0E8;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  letter-spacing: 2px;
+}
+
+.closure-banner-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  color: #f0c8c8;
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+.address-table {
+  font-size: 12px;
+}
+
+.address-table td {
+  padding: 4px 8px;
+  border-bottom: 1px dotted #d8d0c0;
+  vertical-align: top;
+}
+
+.address-label {
+  width: 60px;
+  color: #1a3a5c;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.address-value {
+  color: #2C2C2C;
+}
+
+.text-map {
+  font-family: "MS Mincho", "游明朝", "ヒラギノ明朝 ProN", serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #2C2C2C;
+  background-color: #ede8dc;
+  border: 1px solid #B8A898;
+  padding: 10px 12px;
+  margin: 4px 0;
+  overflow-x: auto;
+}
+
+.transport-table {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.transport-table td {
+  padding: 3px 4px;
+  vertical-align: top;
+}
+
+.transport-icon {
+  color: #1a3a5c;
+  padding-right: 6px;
+  width: 16px;
+}
+
+.hours-table {
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.hours-table td {
+  padding: 4px 12px;
+  border: 1px solid #d8d0c0;
+}
+
+.hours-header-row td {
+  background-color: #e8e4da;
+  font-weight: bold;
+  color: #1a3a5c;
+}
+
+.hours-day  { width: 100px; }
+.hours-time { width: 120px; }
+.hours-note { color: #666666; }
