@@ -377,3 +377,97 @@ hr {
   background-color: #1a3a5c;
   color: #F5F0E8;
 }
+
+/* ============================================
+   about.html 用スタイル
+   ============================================ */
+
+/* パンくずリスト */
+.breadcrumb {
+  font-size: 11px;
+  color: #666666;
+  padding: 2px 0;
+}
+
+.breadcrumb a {
+  color: #1a3a5c;
+}
+
+/* ナビゲーション：現在地サブメニュー */
+.nav-sub-current {
+  color: #1a3a5c;
+  font-weight: bold;
+}
+
+/* 沿革年表 */
+.timeline-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.timeline-row td {
+  padding: 6px 8px;
+  vertical-align: top;
+  border-bottom: 1px dotted #d0c8b8;
+}
+
+.timeline-row-highlight td {
+  background-color: #ede8dc;
+}
+
+.timeline-year {
+  width: 80px;
+  white-space: nowrap;
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  color: #1a3a5c;
+  font-weight: bold;
+  padding-right: 12px;
+}
+
+.timeline-year-en {
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  color: #888888;
+  font-weight: normal;
+}
+
+.timeline-event {
+  font-size: 12px;
+  color: #2C2C2C;
+  line-height: 1.8;
+}
+
+.timeline-note {
+  display: block;
+  font-size: 10px;
+  color: #888888;
+  font-family: "Courier New", monospace;
+  margin-top: 2px;
+}
+
+/* 奈瀬家と図書館セクション */
+.section-subtitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: #1a3a5c;
+  margin: 6px 0 4px 0;
+}
+
+.content-hr {
+  border: none;
+  border-top: 1px solid #d0c8b8;
+  margin: 10px 0;
+}
+
+.contribution-table {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.contrib-item {
+  padding: 2px 0;
+  color: #2C2C2C;
+  line-height: 1.8;
+}
