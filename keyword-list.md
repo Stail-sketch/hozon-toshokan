@@ -149,7 +149,40 @@
 | 139/300 | 国家指令 | hidden/kokka-shirei/ | 消された事実 | |
 | 140/300 | 消された事実 | hidden/kesareta-jijitsu/ | 黒幕 | |
 
-#### p.141〜170（未実装）
+#### p.141〜170（実装済み）
+
+| ページ | キーワード | ディレクトリ | 次のヒント | 備考 |
+|--------|-----------|------------|----------|------|
+| 141/300 | 黒幕 | hidden/kuromaku/ | 彩霧班 | |
+| 142/300 | 彩霧班 | hidden/saigiri-han/ | 極秘任務 | |
+| 143/300 | 極秘任務 | hidden/gokuhimitsu/ | 被害者名簿 | |
+| 144/300 | 被害者名簿 | hidden/higaisha-meibo/ | 抹消命令 | |
+| 145/300 | 抹消命令 | hidden/massho-meirei/ | 協力関係 | |
+| 146/300 | 協力関係 | hidden/kyoryoku-kankei/ | 依頼主 | |
+| 147/300 | 依頼主 | hidden/irai-nushi/ | 奈瀬文書 | |
+| 148/300 | 奈瀬文書 | hidden/nase-bunsho/ | 協定原本 | |
+| 149/300 | 協定原本 | hidden/kyotei-genpon/ | 昭和三十二年協定 | |
+| **150/300** | 昭和三十二年協定 | hidden/showa32-kyotei/ | 依頼署名 | **★青ページ（「5」青）** |
+| 151/300 | 依頼署名 | hidden/irai-shomei/ | 実験名簿 | |
+| 152/300 | 実験名簿 | hidden/jikken-meibo/ | 処理手順 | |
+| 153/300 | 処理手順 | hidden/shori-tejun/ | 秘匿手続 | |
+| 154/300 | 秘匿手続 | hidden/hito-tetsuzuki/ | 省庁連絡 | |
+| 155/300 | 省庁連絡 | hidden/shocho-renraku/ | 彩霧報告書 | |
+| 156/300 | 彩霧報告書 | hidden/saigiri-hokoku/ | 疑問点 | |
+| 157/300 | 疑問点 | hidden/gimonten/ | 奈瀬側記録 | |
+| 158/300 | 奈瀬側記録 | hidden/nase-kiroku/ | 矛盾する証言 | |
+| 159/300 | 矛盾する証言 | hidden/mujun-shogen/ | 不自然な記録 | |
+| 160/300 | 不自然な記録 | hidden/fushizen-kiroku/ | 隠された動機 | |
+| 161/300 | 隠された動機 | hidden/kakusareta-doki/ | 財産記録 | |
+| 162/300 | 財産記録 | hidden/zaisan-kiroku/ | 土地争い | |
+| 163/300 | 土地争い | hidden/tochi-arasoi/ | 奈瀬の利益 | |
+| 164/300 | 奈瀬の利益 | hidden/nase-rieki/ | 真の黒幕 | |
+| 165/300 | 真の黒幕 | hidden/shin-kuromaku/ | 白奈の疑惑 | |
+| 166/300 | 白奈の疑惑 | hidden/shirana-giwaku/ | 梶原報告書 | |
+| 167/300 | 梶原報告書 | hidden/kajiwara-hokoku/ | KJ-2021-01 | |
+| 168/300 | KJ-2021-01 | hidden/kj-2021-01/ | 職員専用記録 | |
+| 169/300 | 職員専用記録 | hidden/shokuin-kiroku/ | 最終記録 | |
+| **170/300** | 最終記録 | hidden/saigo-kiroku/ | 職員端末（Layer4へ） | **★青ページ（「7」青）** |
 
 ---
 
