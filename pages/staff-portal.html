@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>職員専用端末 | 澄奈市立保存図書館</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    background-color: #1a1a2e;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+  }
+
+  /* スキャンライン */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.07) 2px,
+      rgba(0, 0, 0, 0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── ブートスクリーン ── */
+  #boot-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #0d0d1a;
+    z-index: 100;
+    padding: 40px 50px;
+    overflow: hidden;
+  }
+
+  #boot-text {
+    white-space: pre;
+    line-height: 1.65;
+    color: #00ff41;
+    font-size: 13px;
+  }
+
+  /* ── メイン端末 ── */
+  #main-terminal {
+    display: none;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 44px 48px;
+    min-height: 100vh;
+  }
+
+  /* ヘッダー */
+  .term-header {
+    border-bottom: 1px solid #00551a;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+
+  .term-title-main {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+
+  .term-title-en {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #007a22;
+    margin-bottom: 14px;
+  }
+
+  .term-sysinfo {
+    color: #00aa2a;
+    font-size: 11px;
+    line-height: 2.0;
+  }
+
+  .term-warn {
+    color: #cc8800;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.8;
+  }
+
+  /* セクション */
+  .term-section {
+    margin-bottom: 34px;
+  }
+
+  .term-section-title {
+    color: #00cc35;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-left: 3px solid #00ff41;
+    padding-left: 10px;
+    margin-bottom: 14px;
+  }
+
+  /* 検索 */
+  .search-mode-label {
+    color: #005a18;
+    font-size: 10px;
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  .search-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .search-prompt {
+    color: #00aa2a;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .search-input {
+    background: #080815;
+    border: 1px solid #007a22;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    padding: 5px 10px;
+    width: 300px;
+    outline: none;
+    letter-spacing: 0.5px;
+  }
+
+  .search-input:focus {
+    border-color: #00ff41;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.25);
+  }
+
+  .search-btn {
+    background: #050d08;
+    border: 1px solid #00cc35;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    padding: 5px 16px;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+
+  .search-btn:hover {
+    background: #0a2010;
+    border-color: #00ff41;
+  }
+
+  .search-notice {
+    color: #004010;
+    font-size: 10px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  .result-area {
+    background: #060612;
+    border: 1px solid #003a10;
+    padding: 12px 16px;
+    min-height: 62px;
+    font-size: 12px;
+    line-height: 2.0;
+  }
+
+  .r-prompt { color: #005a18; }
+  .r-normal { color: #00cc35; }
+  .r-error  { color: #886600; }
+  .r-match  { color: #00ff41; }
+
+  /* リスト */
+  .doc-list {
+    list-style: none;
+  }
+
+  .doc-item {
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #0d1f10;
+    line-height: 1.5;
+  }
+
+  .doc-item:last-child { border-bottom: none; }
+
+  .doc-ref {
+    color: #005a18;
+    font-size: 11px;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 130px;
+  }
+
+  .doc-name { color: #00bb30; }
+
+  .doc-status {
+    color: #004810;
+    font-size: 10px;
+    margin-left: 10px;
+  }
+
+  .clr-label {
+    font-size: 11px;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 140px;
+  }
+
+  .clr-aaa { color: #cc3300; }
+  .clr-aa  { color: #886600; }
+
+  .doc-loc {
+    color: #004810;
+    font-size: 10px;
+    margin-left: 6px;
+  }
+
+  .redacted-row { color: #0a1a0c; }
+  .redacted-ref { color: #081008; }
+
+  /* システム状態 */
+  .sys-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  .sys-ok   { color: #00aa2a; }
+  .sys-warn { color: #886600; }
+  .sys-err  { color: #993300; }
+
+  /* フッター */
+  .term-footer {
+    border-top: 1px solid #002a0c;
+    padding-top: 16px;
+    color: #004810;
+    font-size: 10px;
+    line-height: 2.0;
+  }
+
+  .logout-link {
+    color: #006620;
+    text-decoration: none;
+  }
+
+  .logout-link:hover { color: #00ff41; }
+</style>
+</head>
+<body>
+
+<!-- ── ブートスクリーン ── -->
+<div id="boot-screen">
+  <div id="boot-text"></div>
+</div>
+
+<!-- ── メイン端末インターフェース ── -->
+<div id="main-terminal">
+
+  <!-- ヘッダー -->
+  <div class="term-header">
+    <div class="term-title-main">澄奈市立保存図書館　職員専用端末</div>
+    <div class="term-title-en">SUMINASHI CITY PRESERVATION LIBRARY — INTERNAL ARCHIVE SYSTEM v3.2.1</div>
+    <div class="term-sysinfo">
+      ACCESS_LEVEL : STAFF<br>
+      最終ログイン：2021.03.13 23:47<br>
+      現在のセッション：[記録中]
+    </div>
+    <div class="term-warn">
+      警告：前回のセッションは正常に終了していません<br>
+      警告：一部のデータベースに接続できません　/ DATABASE_C : OFFLINE
+    </div>
+  </div>
+
+  <!-- 職員専用アーカイブ検索 -->
+  <div class="term-section">
+    <div class="term-section-title">▌ 職員専用アーカイブ検索</div>
+    <div class="search-mode-label">
+      SEARCH_MODE : STAFF_ARCHIVE<br>
+      DATABASE    : RESTRICTED_INTERNAL / LAYER_4-5_ACCESS
+    </div>
+    <form id="staff-search-form" onsubmit="doStaffSearch(event)">
+      <div class="search-line">
+        <span class="search-prompt">&gt; QUERY :</span>
+        <input type="text" id="staff-search-input" class="search-input" size="30" maxlength="100" autocomplete="off">
+        <button type="submit" class="search-btn">SEARCH</button>
+      </div>
+    </form>
+    <div class="search-notice">注意：このシステムへのアクセスは全て記録されます　/ ACCESS_LOG : RECORDING</div>
+    <div class="result-area" id="staff-result">
+      <span class="r-prompt">&gt; </span><span class="r-normal">待機中 / STANDBY</span>
+    </div>
+  </div>
+
+  <!-- 内部報告書一覧 -->
+  <div class="term-section">
+    <div class="term-section-title">▌ 内部報告書一覧</div>
+    <ul class="doc-list">
+      <li class="doc-item">
+        <span class="doc-ref">[REF: NB-9001]</span>
+        <span class="doc-name">奈瀬家寄贈資料 詳細目録（未公開分）</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-ref">[REF: B-0099]</span>
+        <span class="doc-name">地下書庫 完全管理記録（B1F〜B3F）</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-ref">[REF: IN-FINAL]</span>
+        <span class="doc-name">司書失踪事案 内部調査 最終報告書</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-ref">[REF: FS-CHAIN]</span>
+        <span class="doc-name">封印管理 歴代引継記録（第一代〜最終）</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-ref">[REF: DIR-LAST]</span>
+        <span class="doc-name">館長職 最終引継文書（奈瀬統一郎→後継者未定）</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-ref">[REF: SYS-LOG]</span>
+        <span class="doc-name">蔵書管理システム ログ記録（2021.03.14分）</span>
+        <span class="doc-status">[ACCESS: RESTRICTED]</span>
+      </li>
+      <li class="doc-item redacted-row">
+        <span class="doc-ref redacted-ref">[REF: ████████]</span>
+        <span>████████████████████████████████████████</span>
+        <span class="doc-status" style="color:#081008;">[ACCESS: ████]</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 閲覧制限資料一覧 -->
+  <div class="term-section">
+    <div class="term-section-title">▌ 閲覧制限資料一覧</div>
+    <ul class="doc-list">
+      <li class="doc-item">
+        <span class="clr-label clr-aaa">[CLEARANCE: AAA]</span>
+        <span class="doc-name">奈瀬家秘密文書（第一類）</span>
+        <span class="doc-loc">[LOCATION: B3F / LOCKED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="clr-label clr-aaa">[CLEARANCE: AAA]</span>
+        <span class="doc-name">消去命令書 原本一式</span>
+        <span class="doc-loc">[LOCATION: 禁室 / SEALED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="clr-label clr-aa">[CLEARANCE: AA ]</span>
+        <span class="doc-name">市民台帳 完全版（削除前データ）</span>
+        <span class="doc-loc">[LOCATION: B3F / LOCKED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="clr-label clr-aaa">[CLEARANCE: AAA]</span>
+        <span class="doc-name">最終封印 管理記録・儀式手順書</span>
+        <span class="doc-loc">[LOCATION: B3F / SEALED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="clr-label clr-aaa">[CLEARANCE: AAA]</span>
+        <span class="doc-name">過去送り 実行記録（全件）</span>
+        <span class="doc-loc">[LOCATION: 禁室 / SEALED]</span>
+      </li>
+      <li class="doc-item">
+        <span class="clr-label clr-aaa">[CLEARANCE: AAA]</span>
+        <span class="doc-name">国家機関との往来文書 一式</span>
+        <span class="doc-loc">[LOCATION: ████ / ████]</span>
+      </li>
+      <li class="doc-item redacted-row">
+        <span class="clr-label" style="color:#1a0800;">[CLEARANCE: ████]</span>
+        <span>████████████████████████████████</span>
+        <span class="doc-loc" style="color:#081008;">[LOCATION: ████████████]</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- システム状態 -->
+  <div class="term-section">
+    <div class="term-section-title">▌ システム状態</div>
+    <div class="sys-row">
+      <span class="sys-ok">DATABASE_A : ONLINE</span>
+      <span class="sys-warn">DATABASE_B : PARTIAL</span>
+      <span class="sys-err">DATABASE_C : OFFLINE</span>
+    </div>
+    <div class="sys-row">
+      <span class="sys-warn">ARCHIVE_INTEGRITY : 67%</span>
+      <span class="sys-err">LAST_BACKUP : 2021.03.13</span>
+      <span class="sys-err">NEXT_BACKUP : --.--.--</span>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="term-footer">
+    澄奈市立保存図書館 内部アーカイブシステム　/ 澄奈市情報管理課<br>
+    このシステムは職員のみ使用できます。不正アクセスは記録・通報されます。<br>
+    <br>
+    <a href="login.html" class="logout-link">&gt; ログアウト / LOGOUT</a>
+  </div>
+
+</div>
+
+<script>
+// ── ブートシーケンス ────────────────────────────────────────────
+var bootLines = [
+  '',
+  'SUMINASHI CITY PRESERVATION LIBRARY',
+  '澄奈市立保存図書館 内部アーカイブシステム',
+  'VERSION : 3.2.1  BUILD : 1998-04-01',
+  '(C) 澄奈市情報管理課',
+  '',
+  'システム起動中...',
+  '',
+  'CHECKING SYSTEM INTEGRITY...',
+  '  database/archive.db ............... [OK]',
+  '  database/restricted.db ............ [OK]',
+  '  database/deleted.db ............... [MISSING]',
+  '  database/session_log.db ........... [CORRUPTED]',
+  '',
+  '認証情報を確認しています...',
+  'CREDENTIAL CHECK ................... [PASS]',
+  '',
+  'ACCESS_LEVEL : STAFF',
+  '最終ログイン：2021.03.13 23:47',
+  '',
+  '警告：前回のセッションは正常に終了していません',
+  '警告：DATABASE_C に接続できません',
+  '',
+  'アーカイブデータベースに接続中...',
+  'CONNECTING ...... ...... ...... .... [OK]',
+  '',
+  '> システム準備完了 / READY',
+  '> メインインターフェースを起動します',
+  ''
+];
+
+var bootEl = document.getElementById('boot-text');
+var lineIdx = 0;
+
+function showNextBootLine() {
+  if (lineIdx >= bootLines.length) {
+    setTimeout(function() {
+      document.getElementById('boot-screen').style.display = 'none';
+      var main = document.getElementById('main-terminal');
+      main.style.display = 'block';
+      main.style.opacity = '0';
+      main.style.transition = 'opacity 0.5s';
+      setTimeout(function() { main.style.opacity = '1'; }, 30);
+    }, 500);
+    return;
+  }
+  var line = bootLines[lineIdx];
+  bootEl.textContent += line + '\n';
+  lineIdx++;
+  var delay = 55;
+  if (line.indexOf('......') !== -1) delay = 380;
+  if (line === '') delay = 25;
+  setTimeout(showNextBootLine, delay);
+}
+
+showNextBootLine();
+
+// ── 職員専用キーワード検索 ─────────────────────────────────────
+// Layer4〜5実装後にここへキーワードを追加する
+var staffKeywords = {
+  // '依頼書': '../hidden/irai/index.html',
+};
+
+function doStaffSearch(e) {
+  e.preventDefault();
+  var q = document.getElementById('staff-search-input').value.trim();
+  var result = document.getElementById('staff-result');
+
+  if (q === '') {
+    result.innerHTML = '<span class="r-prompt">&gt; </span><span class="r-normal">待機中 / STANDBY</span>';
+    return;
+  }
+
+  var escaped = q.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  result.innerHTML =
+    '<span class="r-prompt">&gt; </span><span class="r-normal">QUERY : &quot;' + escaped + '&quot;</span><br>' +
+    '<span class="r-prompt">&gt; </span><span class="r-normal">SEARCHING .........</span>';
+
+  setTimeout(function() {
+    if (staffKeywords[q]) {
+      result.innerHTML =
+        '<span class="r-prompt">&gt; </span><span class="r-normal">QUERY : &quot;' + escaped + '&quot;</span><br>' +
+        '<span class="r-prompt">&gt; </span><span class="r-match">MATCH FOUND / LOADING ...</span>';
+      setTimeout(function() { window.location.href = staffKeywords[q]; }, 800);
+    } else {
+      result.innerHTML =
+        '<span class="r-prompt">&gt; </span><span class="r-normal">QUERY : &quot;' + escaped + '&quot;</span><br>' +
+        '<span class="r-prompt">&gt; </span><span class="r-error">該当記録なし / CLEARANCE INSUFFICIENT</span><br>' +
+        '<span class="r-prompt">&gt; </span><span class="r-error">ACCESS_LOG : RECORDED / RESULT : 0</span>';
+    }
+  }, 1500);
+}
+
+// コンソールメッセージ
+console.log('職員専用端末 / STAFF TERMINAL');
+console.log('ACCESS_LOG : STAFF_LOGIN / SESSION_START');
+console.log('警告：このセッションは記録されています');
+</script>
+
+</body>
+</html>
