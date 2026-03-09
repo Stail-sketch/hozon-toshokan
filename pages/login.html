@@ -167,13 +167,54 @@
 
 <script src="../js/main.js"></script>
 <script>
+var failCount = 0;
+var locked = false;
+
 function doLogin(e) {
   e.preventDefault();
+  if (locked) return;
+
+  var id = document.getElementById('login-userid').value;
+  var pw = document.getElementById('login-password').value;
   var result = document.getElementById('login-result');
   result.style.display = 'block';
+
+  if (id === 'shisho-7' && pw === '1957') {
+    result.innerHTML =
+      '<p style="color:#1a5c1a; font-size:12px;">認証中... / AUTHENTICATING ...</p>'
+      + '<p class="small-text archive-code">AUTH_SUCCESS / REDIRECT_TO : STAFF_PORTAL</p>';
+    setTimeout(function() {
+      window.location.href = 'staff-portal.html';
+    }, 1200);
+    return;
+  }
+
+  failCount++;
+
+  if (failCount >= 3) {
+    locked = true;
+    var form = document.getElementById('login-form');
+    form.style.opacity = '0.3';
+    form.style.pointerEvents = 'none';
+    result.innerHTML =
+      '<p style="color:#8B0000; font-size:12px;">セキュリティロックがかかりました。30秒後に再試行できます。</p>'
+      + '<p class="small-text archive-code">SECURITY_LOCK : ACTIVE / UNLOCK_IN : 30s / ATTEMPT_LOG : RECORDED</p>';
+    setTimeout(function() {
+      locked = false;
+      failCount = 0;
+      var form = document.getElementById('login-form');
+      form.style.opacity = '1';
+      form.style.pointerEvents = '';
+      document.getElementById('login-userid').value = '';
+      document.getElementById('login-password').value = '';
+      result.innerHTML = '<p class="small-text archive-code">SECURITY_LOCK : RELEASED / 再試行できます</p>';
+    }, 30000);
+    return;
+  }
+
   result.innerHTML =
-    '<p style="color:#8B0000; font-size:12px;">ログインに失敗しました。職員IDまたはパスワードが正しくありません。</p>'
-    + '<p class="small-text archive-code">AUTH_FAILED / ATTEMPT_LOG : RECORDED</p>';
+    '<p style="color:#8B0000; font-size:12px;">認証に失敗しました。アクセスログを記録しました。</p>'
+    + '<p class="small-text archive-code">AUTH_FAILED (' + failCount + '/3) / ATTEMPT_LOG : RECORDED</p>';
 }
 </script>
 </body>
