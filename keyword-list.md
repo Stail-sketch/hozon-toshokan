@@ -53,7 +53,35 @@
 | 64/300 | 消去記録 | hidden/shokyokiroku/ | |
 | 65/300 | 地下一階 | hidden/chikaikkai/ | |
 
-### 後半（p.66〜90）— 未実装
+### 後半（p.66〜90）— 実装済み
+
+| ページ | キーワード | ディレクトリ | 次のヒント |
+|--------|-----------|------------|----------|
+| 66/300 | 奈瀬文書庫 | hidden/nasebunshoko/ | 血統 |
+| 67/300 | 血統 | hidden/ketto/ | 綴じ儀式 |
+| 68/300 | 綴じ儀式 | hidden/tojigishiki/ | 白紙の書 |
+| 69/300 | 白紙の書 | hidden/hakushinosho/ | 書庫増築 |
+| 70/300 | 書庫増築 | hidden/shokozochu/ | 第五閲覧室 |
+| 71/300 | 第五閲覧室 | hidden/dai5/ | 焚書 |
+| 72/300 | 焚書 | hidden/funsho/ | 証言録 |
+| 73/300 | 証言録 | hidden/shogenroku/ | 黒塗り |
+| 74/300 | 黒塗り | hidden/kuronuri/ | 明治秘録 |
+| 75/300 | 明治秘録 | hidden/meijihiroku/ | 奈瀬昇 |
+| 76/300 | 奈瀬昇 | hidden/nasenoboru/ | 行方不明者 |
+| 77/300 | 行方不明者 | hidden/yukuefumeisha/ | 手記 |
+| 78/300 | 手記 | hidden/shuki/ | 調査報告 |
+| 79/300 | 調査報告 | hidden/chosahokoku/ | 不審死 |
+| 80/300 | 不審死 | hidden/fushinshi/ | 記録抹消 |
+| 81/300 | 記録抹消 | hidden/kirokumassho/ | 地下三階 |
+| 82/300 | 地下三階 | hidden/chikasangai/ | 最終封印 |
+| 83/300 | 最終封印 | hidden/saigofuuin/ | 真相 |
+| 84/300 | 真相 | hidden/shinsho/ | 誓約書 |
+| 85/300 | 誓約書 | hidden/seiyakusho/ | 消去命令 |
+| 86/300 | 消去命令 | hidden/shokyomeirei/ | 市民台帳 |
+| 87/300 | 市民台帳 | hidden/shimindaicho/ | 封蝋 |
+| 88/300 | 封蝋 | hidden/furo/ | 禁室 |
+| 89/300 | 禁室 | hidden/kinshitsu/ | 終焉 |
+| 90/300 | 終焉 | hidden/shuen/ | 国家実験（Layer3）|
 
 ---
 
