@@ -85,7 +85,34 @@
 
 ---
 
-## 第3層（p.91〜170）— 国の関与・フェイクの真実（未実装）
+## 第3層（p.91〜170）— 国の関与・フェイクの真実
+
+### 前半（p.91〜110）— 実装済み
+
+| ページ | キーワード | ディレクトリ | 次のヒント | 備考 |
+|--------|-----------|------------|----------|------|
+| **91/300** | 国家実験 | hidden/kokka-jikken/ | 監視計画 | **★青ページ（「1」青）・昭和32年記述** |
+| 92/300 | 監視計画 | hidden/kanshi-keikaku/ | 澄奈計画 | |
+| 93/300 | 澄奈計画 | hidden/suminashi-keikaku/ | 被験者 | |
+| 94/300 | 被験者 | hidden/hiken-sha/ | 特務機関 | |
+| 95/300 | 特務機関 | hidden/tokumu-kikan/ | 昭和三十二年 | |
+| 96/300 | 昭和三十二年 | hidden/showa32/ | 記録処理 | |
+| 97/300 | 記録処理 | hidden/kiroku-shori/ | 消去対象 | |
+| 98/300 | 消去対象 | hidden/shokyotaisho/ | 澄奈事案 | |
+| 99/300 | 澄奈事案 | hidden/suminashi-jian/ | 実験区域 | |
+| 100/300 | 実験区域 | hidden/jikken-kuiki/ | 協定書 | |
+| 101/300 | 協定書 | hidden/kyoteisho/ | 機密指定 | |
+| 102/300 | 機密指定 | hidden/kimitsu-shitei/ | 証拠隠滅 | |
+| 103/300 | 証拠隠滅 | hidden/shoko-inmetsu/ | 対象者名簿 | |
+| 104/300 | 対象者名簿 | hidden/taishosha-meibo/ | 昭和調書 | |
+| 105/300 | 昭和調書 | hidden/showa-chosho/ | 実験報告 | |
+| 106/300 | 実験報告 | hidden/jikken-hokoku/ | 地域封鎖 | |
+| 107/300 | 地域封鎖 | hidden/chiiki-fusa/ | 特別措置 | |
+| 108/300 | 特別措置 | hidden/tokubetsu-sochi/ | 黒衣の使節 | |
+| 109/300 | 黒衣の使節 | hidden/kuroi-shisetsu/ | 実験施設 | |
+| **110/300** | 実験施設 | hidden/jikken-shisetsu/ | 国家機密 | **★青ページ（「0」青）・昭和32年記述** |
+
+### 後半（p.111〜170）— 未実装
 
 ---
 
