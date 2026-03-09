@@ -110,9 +110,46 @@
 | 107/300 | 地域封鎖 | hidden/chiiki-fusa/ | 特別措置 | |
 | 108/300 | 特別措置 | hidden/tokubetsu-sochi/ | 黒衣の使節 | |
 | 109/300 | 黒衣の使節 | hidden/kuroi-shisetsu/ | 実験施設 | |
-| **110/300** | 実験施設 | hidden/jikken-shisetsu/ | 国家機密 | **★青ページ（「0」青）・昭和32年記述** |
+| 110/300 | 実験施設 | hidden/jikken-shisetsu/ | 国家機密 | |
 
-### 後半（p.111〜170）— 未実装
+### 後半（p.111〜170）— 前半実装済み・後半未実装
+
+#### p.111〜140（実装済み）
+
+| ページ | キーワード | ディレクトリ | 次のヒント | 備考 |
+|--------|-----------|------------|----------|------|
+| 111/300 | 国家機密 | hidden/kokka-kimitsu/ | 秘密指令 | |
+| 112/300 | 秘密指令 | hidden/himitsu-shirei/ | 第三部 | |
+| 113/300 | 第三部 | hidden/daisanbu/ | 実験継続 | |
+| 114/300 | 実験継続 | hidden/jikken-keizoku/ | 転出者記録 | |
+| 115/300 | 転出者記録 | hidden/tenshusha-kiroku/ | 情報封鎖 | |
+| 116/300 | 情報封鎖 | hidden/joho-fusa/ | 記録隠蔽 | |
+| 117/300 | 記録隠蔽 | hidden/kiroku-inpei/ | 目撃者 | |
+| 118/300 | 目撃者 | hidden/mokugekisha/ | 消去完了 | |
+| **119/300** | 消去完了 | hidden/shokyokanryo/ | 隠蔽指示 | **★青ページ（「9」青）・昭和32年記述** |
+| 120/300 | 隠蔽指示 | hidden/inpei-shiji/ | 観察記録 | |
+| 121/300 | 観察記録 | hidden/kansatsu-kiroku/ | 図書館報告 | |
+| 122/300 | 図書館報告 | hidden/toshokan-hokoku/ | 職員監視 | |
+| 123/300 | 職員監視 | hidden/shokuin-kanshi/ | 選別記録 | |
+| 124/300 | 選別記録 | hidden/senbetsu-kiroku/ | 失踪確認 | |
+| 125/300 | 失踪確認 | hidden/shisso-kakunin/ | 痕跡処理 | |
+| 126/300 | 痕跡処理 | hidden/konseki-shori/ | 最終段階 | |
+| 127/300 | 最終段階 | hidden/saigo-dankai/ | 国家証言 | |
+| 128/300 | 国家証言 | hidden/kokka-shogen/ | 内部告発 | |
+| 129/300 | 内部告発 | hidden/naibu-kokuhatsu/ | 告発者 | |
+| 130/300 | 告発者 | hidden/kokuhatsusha/ | 封印指令 | |
+| 131/300 | 封印指令 | hidden/fuuin-shirei/ | 赤封筒 | |
+| 132/300 | 赤封筒 | hidden/aka-futo/ | 禁断記録 | |
+| **133/300** | 禁断記録 | hidden/kindan-kiroku/ | 第七計画 | **★赤ページ（#8B0000）** |
+| 134/300 | 第七計画 | hidden/nanago-keikaku/ | 消滅命令 | |
+| 135/300 | 消滅命令 | hidden/shometsu-meirei/ | 実験全貌 | |
+| 136/300 | 実験全貌 | hidden/jikken-zenbo/ | 決定文書 | |
+| 137/300 | 決定文書 | hidden/kettei-bunsho/ | 証拠消去 | |
+| 138/300 | 証拠消去 | hidden/shoko-shokyou/ | 国家指令 | |
+| 139/300 | 国家指令 | hidden/kokka-shirei/ | 消された事実 | |
+| 140/300 | 消された事実 | hidden/kesareta-jijitsu/ | 黒幕 | |
+
+#### p.141〜170（未実装）
 
 ---
 
@@ -131,7 +168,7 @@
 | ページ番号 | キーワード | 役割 |
 |-----------|-----------|------|
 | **47/300** | 三月十四日 | 実装済み |
-| **133/300** | （未定） | 未実装 |
+| **133/300** | 禁断記録 | 実装済み |
 | **251/300** | （未定） | 未実装・最深部の入口 |
 
 3つの赤ページ番号を組み合わせた `/hidden/47-133-251/` が特別ページへの鍵。
