@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>| 澄奈市立保存図書館</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100vh; background-color: #000000; color: #ffffff; font-family: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif; font-size: 15px; }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 80px 24px; text-align: center; }
+  .content { line-height: 2.4; }
+  .content p { margin-bottom: 20px; }
+  .credit { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 40px; line-height: 2.2; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="content" id="main-text">
+    <p>このコンテンツはフィクションです。</p>
+    <p>澄奈市立保存図書館は実在しません。</p>
+    <p>147名の名前も、白奈文香も。</p>
+    <p>&nbsp;</p>
+    <p>でも、あなたが最後まで読んだことは本当です。</p>
+    <p>あなたの記憶の中に残ったものは、本当です。</p>
+    <p>&nbsp;</p>
+    <p>白奈は「読まれることで残れる」と言いました。</p>
+    <p>あなたがそれをしてくれました。</p>
+    <p>&nbsp;</p>
+    <p>ありがとうございました。</p>
+  </div>
+  <div class="credit" id="credit-text">
+    <p>制作：Stail</p>
+    <p>感想は #閉館いたします でお待ちしています。</p>
+  </div>
+</div>
+<script>
+console.log("282/300 - END");
+(function(){
+  var mainPs=document.querySelectorAll('#main-text p');
+  var creditPs=document.querySelectorAll('#credit-text p');
+  mainPs.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
+  creditPs.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
+
+  // 3s black screen, then fade in paragraphs 3s apart
+  var startDelay=3000;
+  var paraDelay=3000;
+  mainPs.forEach(function(p,i){
+    // Skip &nbsp; spacer lines - show them with the next real line
+    var text=p.textContent.trim();
+    if(text.length===0||text==='\u00a0'){
+      // Show spacers together with the previous real paragraph timing
+      setTimeout(function(){p.style.opacity='1';},startDelay+i*paraDelay);
+    } else {
+      setTimeout(function(){p.style.opacity='1';},startDelay+i*paraDelay);
+    }
+  });
+
+  // Credits appear after all main text + 3s
+  var creditStart=startDelay+mainPs.length*paraDelay+3000;
+  creditPs.forEach(function(p){
+    setTimeout(function(){p.style.opacity='1';},creditStart);
+  });
+})();
+</script>
+</body>
+</html>

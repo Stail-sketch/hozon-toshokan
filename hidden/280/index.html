@@ -29,6 +29,24 @@
 </div>
 <script>
 console.log("280/300");
+(function(){
+  var ps=document.querySelectorAll('.content p');
+  var pgnum=document.querySelector('.pgnum');
+  ps.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
+  // "私も、残れます。" at 3s
+  setTimeout(function(){ps[0].style.opacity='1';},3000);
+  // "では、閉館いたします。" at 10s
+  setTimeout(function(){ps[2].style.opacity='1';},10000);
+  // After display complete (12s) + 8s pause = 20s, then 20s fadeout
+  setTimeout(function(){
+    document.body.style.transition='opacity 20s ease';
+    document.body.style.opacity='0';
+  },20000);
+  // At 43s (20+20+3), redirect
+  setTimeout(function(){
+    window.location.href='../281/index.html';
+  },43000);
+})();
 </script>
 </body>
 </html>

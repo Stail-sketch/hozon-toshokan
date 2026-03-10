@@ -46,6 +46,32 @@
 </div>
 <script>
 console.log("266/300");
+(function(){
+  var items=document.querySelectorAll('.content p');
+  var nl=document.querySelector('.next-link');
+  var wrap=document.querySelector('.wrap');
+  nl.style.opacity='0';nl.style.pointerEvents='none';nl.style.transition='opacity 1.5s ease';
+  items.forEach(function(el){el.style.opacity='0';});
+  var cursor=document.createElement('span');
+  cursor.textContent='_';cursor.style.cssText='animation:blink .5s step-end infinite;font-family:Courier New,monospace';
+  var st=document.createElement('style');
+  st.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';
+  document.head.appendChild(st);
+  function shake(){wrap.style.transform='translate('+(Math.random()*2-1)+'px,'+(Math.random()*2-1)+'px)';setTimeout(function(){wrap.style.transform='';},200);}
+  function typewrite(el,cb){var t=el.textContent;el.textContent='';el.style.opacity='1';el.appendChild(cursor);var i=0;var iv=setInterval(function(){if(i<t.length){cursor.before(t[i]);i++;}else{clearInterval(iv);if(cursor.parentNode)cursor.remove();cb();}},30);shake();}
+  function fadeIn(el,cb){el.style.transition='opacity 1.5s ease';el.style.opacity='1';setTimeout(cb,1600);}
+  function processItems(idx){if(idx>=items.length){setTimeout(function(){nl.style.opacity='1';nl.style.pointerEvents='auto';},1500);return;}var el=items[idx];if(el.classList.contains('s')){typewrite(el,function(){if(true&&el.textContent.match(/INTEGRITY/)){glitchBurst();}setTimeout(function(){processItems(idx+1);},400);});}else{fadeIn(el,function(){processItems(idx+1);});}}
+  var jPx=3;var sPx=3;var sOp='66';var fMin=0.65;var constant=false;
+  function doGlitch(){
+    wrap.style.textShadow=sPx+'px 0 #ff0000'+sOp+',-'+sPx+'px 0 #0000ff'+sOp;
+    wrap.style.transform='translate('+(Math.random()*jPx*2-jPx)+'px,'+(Math.random()*jPx*2-jPx)+'px)';
+    wrap.style.opacity=''+(fMin+Math.random()*(1-fMin));
+    setTimeout(function(){if(!constant){wrap.style.textShadow='';wrap.style.transform='';wrap.style.opacity='1';}},200);
+  }
+  function glitchBurst(){for(var i=0;i<5;i++)setTimeout(doGlitch,i*100);}
+  function startGlitch(){if(constant){setInterval(function(){doGlitch();},150+Math.floor(Math.random()*200));}else{setInterval(doGlitch,4000);}}
+  setTimeout(function(){processItems(0);startGlitch();},500);
+})();
 </script>
 </body>
 </html>
