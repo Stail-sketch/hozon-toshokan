@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澄奈市立保存図書館 — ヒントノート</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0d0d;
+    color: #c8c0b4;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    min-height: 100vh;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #2a2520;
+  }
+
+  .page-header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e8e0d4;
+    margin-bottom: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .page-header .subtitle {
+    font-size: 0.82rem;
+    color: #6a6256;
+    letter-spacing: 0.08em;
+  }
+
+  .page-header .caution {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: #1a1610;
+    border-left: 2px solid #8B0000;
+    font-size: 0.82rem;
+    color: #9a8e7e;
+    text-align: left;
+    line-height: 1.8;
+  }
+
+  .layer-section {
+    margin-bottom: 48px;
+  }
+
+  .layer-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #d4cbbe;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid #1f1b16;
+  }
+
+  .hint-item {
+    margin-bottom: 6px;
+  }
+
+  .hint-toggle {
+    width: 100%;
+    background: #151210;
+    border: 1px solid #2a2520;
+    color: #9a8e7e;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.88rem;
+    padding: 14px 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.04em;
+  }
+
+  .hint-toggle:hover {
+    background: #1c1814;
+    border-color: #3a3228;
+    color: #c8c0b4;
+  }
+
+  .hint-toggle .arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    color: #4a4238;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .hint-toggle.active {
+    border-color: #3a3228;
+    background: #1c1814;
+    color: #c8c0b4;
+  }
+
+  .hint-toggle.active .arrow {
+    transform: rotate(90deg);
+    color: #8B0000;
+  }
+
+  .hint-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    background: #121010;
+    border: 1px solid transparent;
+    border-top: none;
+  }
+
+  .hint-content.open {
+    max-height: 400px;
+    padding: 20px 24px;
+    border-color: #2a2520;
+  }
+
+  .hint-content p {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: #b0a898;
+  }
+
+  .hint-content .keyword {
+    display: inline-block;
+    background: #1a1610;
+    border: 1px solid #2a2520;
+    padding: 2px 10px;
+    margin: 4px 2px;
+    font-size: 0.82rem;
+    color: #c8c0b4;
+    letter-spacing: 0.06em;
+  }
+
+  .section-divider {
+    text-align: center;
+    margin: 48px 0;
+    color: #2a2520;
+    font-size: 0.8rem;
+    letter-spacing: 1em;
+  }
+
+  .page-footer {
+    text-align: center;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid #2a2520;
+    font-size: 0.75rem;
+    color: #4a4238;
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .page-footer a {
+    color: #6a6256;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2520;
+    transition: color 0.2s;
+  }
+
+  .page-footer a:hover {
+    color: #9a8e7e;
+  }
+
+  .spoiler-warn {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #8B0000;
+    letter-spacing: 0.08em;
+    margin-left: 8px;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 40px 16px 80px; }
+    .page-header h1 { font-size: 1.3rem; }
+    .hint-toggle { padding: 12px 16px; font-size: 0.84rem; }
+    .hint-content.open { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>ヒントノート</h1>
+    <div class="subtitle">探索の手引き</div>
+    <div class="caution">
+      このページには各段階のヒントが含まれています。<br>
+      クリックするとヒントが表示されます。必要な箇所だけ開いてください。<br>
+      自力で進めたほうが絶対に楽しいです。本当に詰まったときだけ。
+    </div>
+  </div>
+
+  <!-- Layer 1 -->
+  <div class="layer-section">
+    <div class="layer-title">第一層</div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 1</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>このサイトは「図書館」です。図書館でまずやることを思い出してください。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 2</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>サイト内に「蔵書検索」があります。見つけてください。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 3</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>蔵書検索に何かを入力すると、普通ではないページが出てくることがあります。<br>このサイトに何度も登場する「名前」を試してみてください。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 4</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>この図書館を作った一族の名前を検索してみてください。<br>サイトのあちこちに書いてあります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 5 <span class="spoiler-warn">※ネタバレ</span></span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>蔵書検索で<span class="keyword">奈瀬</span>と入力してください。<br>表示されたページを読むと、次に検索すべきキーワードが見つかります。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="layer-section">
+    <div class="layer-title">第二層</div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 1</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第一層と同じ要領です。各ページの文章の中に、次のキーワードが隠れています。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 2</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>キーワードは、文章中で少し目立つように書かれています。<br>「」で囲まれた言葉に注目してみてください。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 3</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>次のキーワードが見つからないときは、ページの最後まで読みましたか？<br>文末や記録の末尾に書かれていることもあります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 4</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第二層は長いです。全部で50ページあります。<br>途中で詰まったら、直前のページをもう一度じっくり読み直してください。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 5 <span class="spoiler-warn">※ネタバレ</span></span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第二層の最後のキーワードは<span class="keyword">終焉</span>です。<br>ここまでたどり着けば、第三層への入口が示されます。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 3 -->
+  <div class="layer-section">
+    <div class="layer-title">第三層</div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 1</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第三層の終わりに、先に進むための「扉」があります。<br>その扉を開けるには、二つの情報が必要です。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 2</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第三層のページ番号をよく見てください。<br>ほとんどのページは同じ色ですが、一部だけ違う色の文字が混ざっていませんか？</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 3</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>色が違う文字は数字です。それを集めると、ある4桁の数字になります。<br>その数字が何を意味するかは、最終記録のページにヒントがあります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 4</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>扉を開けるにはもうひとつ情報が要ります。<br>最終記録のページには、記録者の情報が書かれています。そこに答えがあります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 5 <span class="spoiler-warn">※ネタバレ</span></span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>職員専用端末のログインページで、以下を入力してください。<br>職員ID：最終記録の記録者名の横に書いてあります。<br>パスワード：青い数字を4つ集めた4桁の年号です。<br>最終記録に「年号」という言葉があります。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 4 -->
+  <div class="layer-section">
+    <div class="layer-title">第四層</div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 1</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>職員端末の中でも、これまでと同じ方法で探索を続けてください。<br>最後に、もうひとつだけ認証が必要になります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 2</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>第三層では「青」が鍵でした。<br>この図書館にはもうひとつ、意味のある色があります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 3</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>ここまでの探索で通ってきたすべてのページを思い返してください。<br>ページ番号が赤いページがありませんでしたか？第二層から第四層にかけて、複数あります。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 4</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>赤いページは全部で3つあります。<br>そのページ番号自体が、最終認証に必要な数字です。</p>
+      </div>
+    </div>
+
+    <div class="hint-item">
+      <button class="hint-toggle" onclick="toggleHint(this)">
+        <span>ヒント 5 <span class="spoiler-warn">※ネタバレ</span></span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="hint-content">
+        <p>赤いページ番号は<span class="keyword">47</span><span class="keyword">133</span><span class="keyword">249</span>の3つです。<br>この3つを出現順にそのまま並べた8桁の数字が最終認証コードです。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">———</div>
+
+  <div class="page-footer">
+    ここから先のヒントはありません。<br>
+    あなたのご健闘をお祈りします。
+  </div>
+
+</div>
+
+<script>
+function toggleHint(btn) {
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+
+  const section = btn.closest('.layer-section');
+  section.querySelectorAll('.hint-content.open').forEach(el => {
+    el.classList.remove('open');
+    el.previousElementSibling.classList.remove('active');
+  });
+
+  if (!isOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>
