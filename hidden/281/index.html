@@ -35,7 +35,7 @@ console.log("281/300");
 
   // Phase 1: Fade in (0-12s) - each line 2s apart
   ps.forEach(function(p,i){
-    setTimeout(function(){p.style.opacity='1';},i*2000);
+    setTimeout(function(){p.style.opacity='1';},i*800);
   });
 
   // Phase 2: Static (12-15s) - just wait
@@ -44,7 +44,7 @@ console.log("281/300");
   var gRunning=false;var gTimer;
   function doGlitch(){
     if(!gRunning)return;
-    var intensity=Math.min(1,(Date.now()-gStart)/3000);
+    var intensity=Math.min(1,(Date.now()-gStart)/1000);
     var s=Math.floor(intensity*4)+1;
     var j=Math.floor(intensity*3)+1;
     wrap.style.textShadow=s+'px 0 #ff0000,-'+s+'px 0 #0000ff';
@@ -95,7 +95,7 @@ console.log("281/300");
         wrap.style.transform='translate('+(Math.random()*6-3)+'px,0)';
       }
       idx--;
-    },50);
+    },20);
   }
 
   // Phase 5: Cursor blink (35-38s)
@@ -110,14 +110,14 @@ console.log("281/300");
         // 5s black screen then redirect
         setTimeout(function(){
           window.location.href='../282/index.html';
-        },5000);
+        },2000);
       },1000);
-    },3000);
+    },1000);
   }
 
   // Timeline
-  setTimeout(startGlitch,15000);   // Phase 3
-  setTimeout(startDeletion,18000);  // Phase 4
+  setTimeout(startGlitch,5000);   // Phase 3
+  setTimeout(startDeletion,6000);  // Phase 4
 })();
 </script>
 </body>

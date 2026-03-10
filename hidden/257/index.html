@@ -35,9 +35,9 @@ console.log("257/300");
   var ps=document.querySelectorAll('.content p');
   ps.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
   ps.forEach(function(p,i){
-    setTimeout(function(){p.style.opacity='1';},2500*i);
+    setTimeout(function(){p.style.opacity='1';},800*i);
   });
-  var allDone=2500*(ps.length-1)+2000;
+  var allDone=800*(ps.length-1)+2000;
   setTimeout(function(){
     document.body.style.transition='opacity 0.5s ease';
     document.body.style.opacity='0';

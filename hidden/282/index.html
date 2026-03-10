@@ -42,8 +42,8 @@ console.log("282/300 - END");
   creditPs.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
 
   // 3s black screen, then fade in paragraphs 3s apart
-  var startDelay=3000;
-  var paraDelay=3000;
+  var startDelay=1000;
+  var paraDelay=1500;
   mainPs.forEach(function(p,i){
     // Skip &nbsp; spacer lines - show them with the next real line
     var text=p.textContent.trim();
@@ -56,7 +56,7 @@ console.log("282/300 - END");
   });
 
   // Credits appear after all main text + 3s
-  var creditStart=startDelay+mainPs.length*paraDelay+3000;
+  var creditStart=startDelay+mainPs.length*paraDelay+1500;
   creditPs.forEach(function(p){
     setTimeout(function(){p.style.opacity='1';},creditStart);
   });
