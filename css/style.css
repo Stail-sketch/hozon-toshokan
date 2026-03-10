@@ -373,6 +373,46 @@ hr {
 }
 
 /* ============================================
+   サイドバー検索ボックス
+   ============================================ */
+
+.sidebar-search-input {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 12px;
+  border: 1px solid #B8A898;
+  background-color: #faf8f4;
+  padding: 2px 4px;
+  color: #2C2C2C;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 4px;
+}
+
+.sidebar-search-btn {
+  font-family: "MS Mincho", "游明朝", serif;
+  font-size: 11px;
+  background-color: #1a3a5c;
+  color: #F5F0E8;
+  border: 1px solid #1a3a5c;
+  padding: 2px 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sidebar-search-btn:hover {
+  background-color: #2a4a6c;
+}
+
+.sidebar-search-msg {
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  color: #888888;
+  margin-top: 3px;
+  min-height: 12px;
+  line-height: 1.4;
+}
+
+/* ============================================
    選択テキストのスタイル
    ============================================ */
 
