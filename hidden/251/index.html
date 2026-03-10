@@ -38,9 +38,9 @@ console.log("251/300");
   nl.style.transition='opacity 1.5s ease';
   ps.forEach(function(p){ p.style.opacity='0'; p.style.transition='opacity 1.5s ease'; });
   ps.forEach(function(p,i){
-    setTimeout(function(){ p.style.opacity='1'; }, 1600*i);
+    setTimeout(function(){ p.style.opacity='1'; }, 4600*i);
   });
-  setTimeout(function(){ nl.style.opacity='1'; nl.style.pointerEvents='auto'; }, 1600*ps.length+1000);
+  setTimeout(function(){ nl.style.opacity='1'; nl.style.pointerEvents='auto'; }, 4600*ps.length+6000);
 })();
 </script>
 </body>
