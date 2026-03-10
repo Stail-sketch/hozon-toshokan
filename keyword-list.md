@@ -6,18 +6,18 @@
 
 ## 第1層（p.31〜40）— 奈瀬家の存在に気づく
 
-| ページ | キーワード | ディレクトリ |
-|--------|-----------|------------|
-| 31/300 | 奈瀬 | hidden/nase/ |
-| 32/300 | 白奈 | hidden/shirana/ |
-| 33/300 | 地下書庫 | hidden/chika/ |
-| 34/300 | 第七閲覧室 | hidden/7th/ |
-| 35/300 | 特別保存 | hidden/tokubestu/ |
-| 36/300 | 統一郎 | hidden/toichiro/ |
-| 37/300 | 澄奈 | hidden/suminashi/ |
-| 38/300 | 令和三年 | hidden/r3/ |
-| 39/300 | 封印 | hidden/fuuin/ |
-| 40/300 | 白紙 | hidden/hakushi/ |
+| ページ | キーワード | ディレクトリ | 次のヒント |
+|--------|-----------|------------|----------|
+| 31/300 | 奈瀬 | hidden/nase/ | 白奈 |
+| 32/300 | 白奈 | hidden/shirana/ | 地下書庫 |
+| 33/300 | 地下書庫 | hidden/chika/ | 第七閲覧室 |
+| 34/300 | 第七閲覧室 | hidden/7th/ | 特別保存 |
+| 35/300 | 特別保存 | hidden/tokubestu/ | 統一郎 |
+| 36/300 | 統一郎 | hidden/toichiro/ | 澄奈 |
+| 37/300 | 澄奈 | hidden/suminashi/ | 令和三年 |
+| 38/300 | 令和三年 | hidden/r3/ | 封印 |
+| 39/300 | 封印 | hidden/fuuin/ | 白紙 |
+| 40/300 | 白紙 | hidden/hakushi/ | 儀式（Layer2へ） |
 
 ---
 
@@ -25,33 +25,33 @@
 
 ### 前半（p.41〜65）— 実装済み
 
-| ページ | キーワード | ディレクトリ | 備考 |
-|--------|-----------|------------|------|
-| 41/300 | 儀式 | hidden/gishiki/ | |
-| 42/300 | 過去送り | hidden/kakookuri/ | |
-| 43/300 | 禁書 | hidden/kinsho/ | |
-| 44/300 | 奈瀬家文書 | hidden/nasebunso/ | |
-| 45/300 | 第三閲覧室 | hidden/dai3/ | |
-| 46/300 | 失踪 | hidden/shisso/ | |
-| **47/300** | **三月十四日** | hidden/march14/ | **★赤ページ** |
-| 48/300 | 断絶 | hidden/danzetsu/ | |
-| 49/300 | 蔵書白紙 | hidden/zoshohakushi/ | |
-| 50/300 | 封印崩壊 | hidden/fuuinhoukai/ | |
-| 51/300 | 地下二階 | hidden/chikanikai/ | |
-| 52/300 | 奈瀬統一郎 | hidden/toichironase/ | |
-| 53/300 | 白奈文香 | hidden/shirana-fumika/ | |
-| 54/300 | 梶原瑞穂 | hidden/kajiwara-mizuho/ | |
-| 55/300 | 主任司書 | hidden/shuninshisho/ | |
-| 56/300 | 閲覧制限 | hidden/etsuranseigen/ | |
-| 57/300 | 削除済み | hidden/sakujo/ | |
-| 58/300 | 非公開 | hidden/hikoukai/ | |
-| 59/300 | 奈瀬町 | hidden/nasemachi/ | |
-| 60/300 | 明治時代 | hidden/meiji/ | |
-| 61/300 | 奈瀬家寄贈 | hidden/nasekizo/ | |
-| 62/300 | 財政難 | hidden/zaiseinan/ | |
-| 63/300 | 司書失踪 | hidden/shishoshisso/ | |
-| 64/300 | 消去記録 | hidden/shokyokiroku/ | |
-| 65/300 | 地下一階 | hidden/chikaikkai/ | |
+| ページ | キーワード | ディレクトリ | 次のヒント | 備考 |
+|--------|-----------|------------|----------|------|
+| 41/300 | 儀式 | hidden/gishiki/ | 過去送り | |
+| 42/300 | 過去送り | hidden/kakookuri/ | 禁書 | |
+| 43/300 | 禁書 | hidden/kinsho/ | 奈瀬家文書 | |
+| 44/300 | 奈瀬家文書 | hidden/nasebunso/ | 第三閲覧室 | |
+| 45/300 | 第三閲覧室 | hidden/dai3/ | 失踪 | |
+| 46/300 | 失踪 | hidden/shisso/ | 三月十四日 | |
+| **47/300** | **三月十四日** | hidden/march14/ | 断絶 | **★赤ページ** |
+| 48/300 | 断絶 | hidden/danzetsu/ | 蔵書白紙 | |
+| 49/300 | 蔵書白紙 | hidden/zoshohakushi/ | 封印崩壊 | |
+| 50/300 | 封印崩壊 | hidden/fuuinhoukai/ | 地下二階 | |
+| 51/300 | 地下二階 | hidden/chikanikai/ | 奈瀬統一郎 | |
+| 52/300 | 奈瀬統一郎 | hidden/toichironase/ | 白奈文香 | |
+| 53/300 | 白奈文香 | hidden/shirana-fumika/ | 梶原瑞穂 | |
+| 54/300 | 梶原瑞穂 | hidden/kajiwara-mizuho/ | 主任司書 | |
+| 55/300 | 主任司書 | hidden/shuninshisho/ | 閲覧制限 | |
+| 56/300 | 閲覧制限 | hidden/etsuranseigen/ | 削除済み | |
+| 57/300 | 削除済み | hidden/sakujo/ | 非公開 | |
+| 58/300 | 非公開 | hidden/hikoukai/ | 奈瀬町 | |
+| 59/300 | 奈瀬町 | hidden/nasemachi/ | 明治時代 | |
+| 60/300 | 明治時代 | hidden/meiji/ | 奈瀬家寄贈 | |
+| 61/300 | 奈瀬家寄贈 | hidden/nasekizo/ | 財政難 | |
+| 62/300 | 財政難 | hidden/zaiseinan/ | 司書失踪 | |
+| 63/300 | 司書失踪 | hidden/shishoshisso/ | 消去記録 | |
+| 64/300 | 消去記録 | hidden/shokyokiroku/ | 地下一階 | |
+| 65/300 | 地下一階 | hidden/chikaikkai/ | 奈瀬文書庫（後半へ） | |
 
 ### 後半（p.66〜90）— 実装済み
 
