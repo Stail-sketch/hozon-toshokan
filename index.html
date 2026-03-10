@@ -170,16 +170,97 @@
     <br>
 
     <!-- 整理番号のお知らせ -->
-    <table width="100%" border="1" cellspacing="0" cellpadding="8" class="content-table">
+    <style>
+      .glitch-notice {
+        position: relative;
+        animation: glitch-flicker 8s infinite;
+      }
+      .glitch-notice .content-body-cell {
+        position: relative;
+      }
+      .glitch-notice .content-body-cell::before,
+      .glitch-notice .content-body-cell::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+        opacity: 0;
+      }
+      .glitch-notice .content-body-cell::before {
+        background: rgba(26, 58, 156, 0.03);
+        animation: glitch-shift 6s infinite;
+      }
+      .glitch-notice .content-body-cell::after {
+        background: rgba(139, 0, 0, 0.03);
+        animation: glitch-shift 6s 0.3s infinite reverse;
+      }
+      .glitch-text {
+        display: inline;
+        animation: glitch-text-jitter 10s infinite;
+      }
+      @keyframes glitch-flicker {
+        0%, 100% { opacity: 1; }
+        92% { opacity: 1; }
+        92.5% { opacity: 0.8; }
+        93% { opacity: 1; }
+        93.2% { opacity: 0.6; }
+        93.5% { opacity: 1; }
+        97% { opacity: 1; }
+        97.3% { opacity: 0.85; }
+        97.5% { opacity: 1; }
+      }
+      @keyframes glitch-shift {
+        0%, 100% { opacity: 0; transform: translate(0, 0); }
+        90% { opacity: 0; }
+        91% { opacity: 1; transform: translate(-2px, 1px); }
+        92% { opacity: 0; transform: translate(0, 0); }
+        95% { opacity: 0; }
+        95.5% { opacity: 1; transform: translate(1px, -1px); }
+        96% { opacity: 0; transform: translate(0, 0); }
+      }
+      @keyframes glitch-text-jitter {
+        0%, 100% { transform: translate(0, 0); text-shadow: none; }
+        88% { transform: translate(0, 0); text-shadow: none; }
+        88.5% { transform: translate(-1px, 0); text-shadow: 2px 0 #1a3a9c33, -2px 0 #8B000033; }
+        89% { transform: translate(1px, 0); text-shadow: -1px 0 #1a3a9c22; }
+        89.5% { transform: translate(0, 0); text-shadow: none; }
+        94% { transform: translate(0, 0); text-shadow: none; }
+        94.2% { transform: translate(0, 1px); text-shadow: 1px 0 #8B000033; }
+        94.5% { transform: translate(0, 0); text-shadow: none; }
+      }
+      .glitch-scanline {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.015) 2px,
+          rgba(0, 0, 0, 0.015) 4px
+        );
+        animation: glitch-scanline-move 0.1s linear infinite;
+        opacity: 0;
+      }
+      .glitch-notice:hover .glitch-scanline {
+        opacity: 1;
+      }
+      @keyframes glitch-scanline-move {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(4px); }
+      }
+    </style>
+    <table width="100%" border="1" cellspacing="0" cellpadding="8" class="content-table glitch-notice">
     <tr>
       <td class="content-header-cell">お知らせ</td>
     </tr>
     <tr>
       <td class="content-body-cell">
-        <p style="font-size:14px; font-weight:bold; margin-bottom:6px;"><span style="color:#1a3a9c;">整理番号</span><span style="color:#8B0000;">について</span></p>
-        <p>当館の資料には、通常とは異なる色の<span style="color:#1a3a9c;">整理番号</span>が付されているものがございます。</p>
-        <p><span style="color:#1a3a9c;">同じ色の番号</span>は、繋がっています。</p>
-        <p><span style="color:#8B0000;">気になる番号</span>は、メモしておくことをお勧めします。</p>
+        <div class="glitch-scanline"></div>
+        <p style="font-size:14px; font-weight:bold; margin-bottom:6px;" class="glitch-text"><span style="color:#1a3a9c;">整理番号</span><span style="color:#8B0000;">について</span></p>
+        <p class="glitch-text">当館の資料には、通常とは異なる色の<span style="color:#1a3a9c;">整理番号</span>が付されているものがございます。</p>
+        <p class="glitch-text"><span style="color:#1a3a9c;">同じ色の番号</span>は、繋がっています。</p>
+        <p class="glitch-text"><span style="color:#8B0000;">気になる番号</span>は、メモしておくことをお勧めします。</p>
       </td>
     </tr>
     </table>
