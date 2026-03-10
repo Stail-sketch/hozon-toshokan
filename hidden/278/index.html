@@ -70,7 +70,7 @@ console.log("278/300");
     var i=0;var iv=setInterval(function(){
       if(i<t.length){cursor.before(t[i]);i++;}
       else{clearInterval(iv);if(cursor.parentNode)cursor.remove();cb();}
-    },15);
+    },30);
   }
   function processItems(idx){
     if(idx>=items.length){setTimeout(function(){document.body.style.transition='opacity 0.5s ease';document.body.style.opacity='0';setTimeout(function(){window.location.href='../279/index.html';},500);},1000);return;}
@@ -80,7 +80,7 @@ console.log("278/300");
       if(el.textContent.indexOf('RESTORED')!==-1){whiteFlash();}
       // INTEGRITY 100% => stop all glitch
       if(el.textContent.indexOf('100%')!==-1){stopGlitch();}
-      setTimeout(function(){processItems(idx+1);},700);
+      setTimeout(function(){processItems(idx+1);},1400);
     });
   }
   doGlitch();

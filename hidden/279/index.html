@@ -10,9 +10,6 @@
   .wrap { max-width: 700px; margin: 0 auto; padding: 80px 44px; }
   .content { line-height: 2.8; }
   .content p { margin-bottom: 20px; }
-  .next-link { margin-top: 80px; text-align: center; }
-  .next-link a { color: rgba(255,255,255,0.25); text-decoration: none; font-size: 13px; font-family: 'Courier New', monospace; }
-  .next-link a:hover { color: rgba(255,255,255,0.5); }
   .pgnum { position: fixed; bottom: 20px; right: 30px; color: rgba(255,255,255,0.08); font-size: 13px; font-family: 'Courier New', monospace; }
 </style>
 </head>
@@ -26,20 +23,22 @@
     <p>これで、あの方たちはあなたの記憶の中に残ります。</p>
 
   </div>
-  <div class="next-link"><a href="../280/index.html">[ 次の記録 ]</a></div>
 </div>
 <script>
 console.log("279/300");
 (function(){
   var ps=document.querySelectorAll('.content p');
-  var nl=document.querySelector('.next-link');
-  nl.style.opacity='0';nl.style.pointerEvents='none';nl.style.transition='opacity 2s ease';
   ps.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
   var delays=[1000,3000,5000];
   ps.forEach(function(p,i){
     if(i<delays.length) setTimeout(function(){p.style.opacity='1';},delays[i]);
   });
-  setTimeout(function(){nl.style.opacity='1';nl.style.pointerEvents='auto';},8000);
+  // Auto-redirect after reading time
+  setTimeout(function(){
+    document.body.style.transition='opacity 0.5s ease';
+    document.body.style.opacity='0';
+    setTimeout(function(){window.location.href='../280/index.html';},500);
+  },10000);
 })();
 </script>
 </body>

@@ -21,7 +21,7 @@
 <div class="wrap">
   <div class="content">
 
-    <p>私も、残れます。</p>
+    <p>私の仕事は、これで終わりです。</p>
     <p>&nbsp;</p>
     <p>では、閉館いたします。</p>
 
@@ -33,7 +33,7 @@ console.log("280/300");
   var ps=document.querySelectorAll('.content p');
   var pgnum=document.querySelector('.pgnum');
   ps.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
-  // "私も、残れます。" at 3s
+  // "私の仕事は、これで終わりです。" at 1s
   setTimeout(function(){ps[0].style.opacity='1';},1000);
   // "では、閉館いたします。" at 10s
   setTimeout(function(){ps[2].style.opacity='1';},3000);

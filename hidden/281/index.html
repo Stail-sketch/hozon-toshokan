@@ -31,33 +31,35 @@ console.log("281/300");
   var ps=document.querySelectorAll('.content p');
   var wrap=document.querySelector('.wrap');
   var cursorEl=document.getElementById('cursor');
+  var garbageChars='\u2588\u2593\u2591\u2592\u25a0\u25aa';
   ps.forEach(function(p){p.style.opacity='0';p.style.transition='opacity 2s ease';});
 
-  // Phase 1: Fade in (0-12s) - each line 2s apart
+  // Phase 1: Fade in paragraphs (2s intervals, slower)
   ps.forEach(function(p,i){
-    setTimeout(function(){p.style.opacity='1';},i*800);
+    setTimeout(function(){p.style.opacity='1';},i*2000);
   });
 
-  // Phase 2: Static (12-15s) - just wait
-
-  // Phase 3: Glitch starts (15-18s)
-  var gRunning=false;var gTimer;
+  // Glitch engine (much stronger)
+  var gRunning=false;var gTimer;var gStart;
   function doGlitch(){
     if(!gRunning)return;
-    var intensity=Math.min(1,(Date.now()-gStart)/1000);
-    var s=Math.floor(intensity*4)+1;
-    var j=Math.floor(intensity*3)+1;
+    var t=Math.min(1,(Date.now()-gStart)/3000);
+    var s=Math.floor(t*8)+2;
+    var j=Math.floor(t*6)+2;
+    var minOp=0.3+0.2*(1-t);
     wrap.style.textShadow=s+'px 0 #ff0000,-'+s+'px 0 #0000ff';
     wrap.style.transform='translate('+(Math.random()*j*2-j)+'px,'+(Math.random()*j*2-j)+'px)';
-    wrap.style.opacity=''+(0.5+Math.random()*0.5);
-    gTimer=setTimeout(doGlitch,100+Math.floor(Math.random()*200));
+    wrap.style.opacity=''+(minOp+Math.random()*(1-minOp));
+    if(Math.random()<0.15){
+      document.body.style.backgroundColor='#330000';
+      setTimeout(function(){document.body.style.backgroundColor='#000000';},50);
+    }
+    gTimer=setTimeout(doGlitch,50+Math.floor(Math.random()*100));
   }
-  var gStart;
   function startGlitch(){gRunning=true;gStart=Date.now();doGlitch();}
-  function stopGlitch(){gRunning=false;clearTimeout(gTimer);wrap.style.textShadow='';wrap.style.transform='';wrap.style.opacity='1';}
+  function stopGlitch(){gRunning=false;clearTimeout(gTimer);wrap.style.textShadow='';wrap.style.transform='';wrap.style.opacity='1';document.body.style.backgroundColor='#000000';}
 
-  // Phase 4: Backspace deletion (18-35s)
-  // Collect all text nodes
+  // Backspace deletion with garbage chars
   function getAllText(){
     var result=[];
     ps.forEach(function(p){
@@ -69,55 +71,59 @@ console.log("281/300");
 
   function startDeletion(){
     var entries=getAllText();
-    // Flatten to char array with references
     var chars=[];
     entries.forEach(function(entry){
       for(var i=0;i<entry.text.length;i++){
         chars.push({el:entry.el,fullText:entry.text,charIdx:i});
       }
     });
-    // Delete from end
     var idx=chars.length-1;
+    var delCount=0;
     var delTimer=setInterval(function(){
       if(idx<0){
         clearInterval(delTimer);
+        ps.forEach(function(p){p.textContent='';});
         stopGlitch();
         showCursor();
         return;
       }
       var c=chars[idx];
-      c.el.textContent=c.fullText.substring(0,c.charIdx);
-      // Update fullText for this element
-      chars.forEach(function(ch){if(ch.el===c.el)ch.fullText=c.el.textContent;});
-      // Glitch burst on delete
-      if(idx%10===0){
-        var s=5;wrap.style.textShadow=s+'px 0 #ff0000,-'+s+'px 0 #0000ff';
-        wrap.style.transform='translate('+(Math.random()*6-3)+'px,0)';
+      var remaining=c.fullText.substring(0,c.charIdx);
+      var g=garbageChars[Math.floor(Math.random()*garbageChars.length)];
+      c.el.textContent=remaining+g;
+      (function(el,text){
+        setTimeout(function(){el.textContent=text;},60);
+      })(c.el,remaining);
+      chars.forEach(function(ch){if(ch.el===c.el)ch.fullText=remaining;});
+      delCount++;
+      if(delCount%5===0){
+        wrap.style.textShadow='10px 0 #ff0000,-10px 0 #0000ff';
+        wrap.style.transform='translate('+(Math.random()*12-6)+'px,'+(Math.random()*12-6)+'px)';
+        document.body.style.backgroundColor='#440000';
+        setTimeout(function(){document.body.style.backgroundColor='#000000';},30);
       }
       idx--;
-    },20);
+    },40);
   }
 
-  // Phase 5: Cursor blink (35-38s)
+  // Cursor phase (3s blink)
   function showCursor(){
     cursorEl.style.display='block';
     cursorEl.style.opacity='1';
     cursorEl.style.transition='opacity 1s ease';
-    // Phase 6: cursor fadeout and redirect
     setTimeout(function(){
       cursorEl.style.opacity='0';
       setTimeout(function(){
-        // 5s black screen then redirect
         setTimeout(function(){
           window.location.href='../282/index.html';
-        },2000);
+        },3000);
       },1000);
-    },1000);
+    },3000);
   }
 
   // Timeline
-  setTimeout(startGlitch,5000);   // Phase 3
-  setTimeout(startDeletion,6000);  // Phase 4
+  setTimeout(startGlitch,13000);
+  setTimeout(startDeletion,16000);
 })();
 </script>
 </body>
