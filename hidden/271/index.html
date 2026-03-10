@@ -19,9 +19,6 @@
   .dim { color: rgba(255,255,255,0.25); }
   .vdim { color: rgba(255,255,255,0.1); }
   .indent { padding-left: 4em; }
-  .next-link { margin-top: 80px; text-align: center; }
-  .next-link a { color: rgba(255,255,255,0.2); text-decoration: none; font-size: 13px; font-family: 'Courier New', monospace; }
-  .next-link a:hover { color: rgba(255,255,255,0.4); }
   .pgnum { position: fixed; bottom: 20px; right: 30px; color: rgba(255,255,255,0.06); font-size: 13px; font-family: 'Courier New', monospace; }
 </style>
 </head>
@@ -38,15 +35,12 @@
     <p class="s f">[FATAL] RECOVERY_IMPOSSIBLE</p>
 
   </div>
-  <div class="next-link"><a href="../272/index.html">[ 次の記録 ]</a></div>
 </div>
 <script>
 console.log("271/300");
 (function(){
   var items=document.querySelectorAll('.content p');
-  var nl=document.querySelector('.next-link');
   var wrap=document.querySelector('.wrap');
-  nl.style.opacity='0';nl.style.pointerEvents='none';nl.style.transition='opacity 1.5s ease';
   items.forEach(function(el){el.style.opacity='0';});
   var cursor=document.createElement('span');
   cursor.textContent='_';cursor.style.cssText='animation:blink .5s step-end infinite;font-family:Courier New,monospace';
@@ -67,7 +61,7 @@ console.log("271/300");
   function shake(){wrap.style.transform='translate('+(Math.random()*4-2)+'px,'+(Math.random()*4-2)+'px)';setTimeout(function(){wrap.style.transform='';},200);}
   function typewrite(el,cb){var t=el.textContent;el.textContent='';el.style.opacity='1';el.appendChild(cursor);var i=0;var iv=setInterval(function(){if(i<t.length){cursor.before(t[i]);i++;}else{clearInterval(iv);if(cursor.parentNode)cursor.remove();cb();}},30);shake();}
   function fadeIn(el,cb){el.style.transition='opacity 1.5s ease';el.style.opacity='1';setTimeout(cb,1600);}
-  function processItems(idx){if(idx>=items.length){setTimeout(function(){nl.style.opacity='1';nl.style.pointerEvents='auto';},1500);return;}var el=items[idx];if(el.classList.contains('s')){typewrite(el,function(){
+  function processItems(idx){if(idx>=items.length){setTimeout(function(){document.body.style.transition='opacity 0.5s ease';document.body.style.opacity='0';setTimeout(function(){window.location.href='../272/index.html';},500);},1000);return;}var el=items[idx];if(el.classList.contains('s')){typewrite(el,function(){
     
     setTimeout(function(){processItems(idx+1);},400);});}else{fadeIn(el,function(){processItems(idx+1);});}}
   setTimeout(function(){doGlitch();processItems(0);},500);

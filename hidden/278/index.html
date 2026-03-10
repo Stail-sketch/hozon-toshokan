@@ -19,9 +19,6 @@
   .dim { color: rgba(255,255,255,0.25); }
   .vdim { color: rgba(255,255,255,0.1); }
   .indent { padding-left: 4em; }
-  .next-link { margin-top: 80px; text-align: center; }
-  .next-link a { color: rgba(255,255,255,0.2); text-decoration: none; font-size: 13px; font-family: 'Courier New', monospace; }
-  .next-link a:hover { color: rgba(255,255,255,0.4); }
   .pgnum { position: fixed; bottom: 20px; right: 30px; color: rgba(255,255,255,0.06); font-size: 13px; font-family: 'Courier New', monospace; }
 </style>
 </head>
@@ -37,15 +34,12 @@
     <p class="s">[SYSTEM] DISPLAYING ...</p>
 
   </div>
-  <div class="next-link"><a href="../279/index.html">[ 次の記録 ]</a></div>
 </div>
 <script>
 console.log("278/300");
 (function(){
   var items=document.querySelectorAll('.content p');
-  var nl=document.querySelector('.next-link');
   var wrap=document.querySelector('.wrap');
-  nl.style.opacity='0';nl.style.pointerEvents='none';nl.style.transition='opacity 1.5s ease';
   items.forEach(function(el){el.style.opacity='0';});
   var cursor=document.createElement('span');
   cursor.textContent='_';cursor.style.cssText='animation:blink .5s step-end infinite;font-family:Courier New,monospace';
@@ -79,7 +73,7 @@ console.log("278/300");
     },30);
   }
   function processItems(idx){
-    if(idx>=items.length){setTimeout(function(){nl.style.opacity='1';nl.style.pointerEvents='auto';},1500);return;}
+    if(idx>=items.length){setTimeout(function(){document.body.style.transition='opacity 0.5s ease';document.body.style.opacity='0';setTimeout(function(){window.location.href='../279/index.html';},500);},1000);return;}
     var el=items[idx];
     typewrite(el,function(){
       // RESTORED line => white flash
