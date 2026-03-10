@@ -13,7 +13,7 @@
 | リポジトリ | hozon-toshokan |
 | 管理Gmail | hozon.toshokan@gmail.com |
 | GitHub Pages URL | https://stail-sketch.github.io/hozon-toshokan/ |
-| 職員ID | shisho7 |
+| 職員ID | shirana0314 |
 | 職員パスワード | 1957（昭和32年＝奈瀬家が国と協定を結んだ年） |
 
 ---
@@ -664,7 +664,7 @@ Layer5到達時のプレイヤーの感情の変化：
 ✅ Layer3後半（141〜170番）実装
 ✅ 職員専用ログインページ
 ✅ 職員専用端末
-✅ ログイン認証（shisho7 / 1957）
+✅ ログイン認証（shirana0314 / 1957）
 ✅ hozon-toshokan.jp 正式公開
 ✅ Xアカウント・投稿文・予約投稿設定中
 ✅ キーワード170個実装済み
