@@ -9,12 +9,12 @@
 
 | ページ | キーワード | ディレクトリ | 次のヒント |
 |--------|-----------|------------|----------|
-| 31/300 | 奈瀬 | hidden/nase/ | 白奈 |
-| 32/300 | 白奈 | hidden/shirana/ | 地下書庫 |
+| 31/300 | 奈瀬 | hidden/nase/ | 白奈文香 |
+| 32/300 | 白奈文香 | hidden/shirana/ | 地下書庫 |
 | 33/300 | 地下書庫 | hidden/chika/ | 第七閲覧室 |
 | 34/300 | 第七閲覧室 | hidden/7th/ | 特別保存 |
-| 35/300 | 特別保存 | hidden/tokubestu/ | 統一郎 |
-| 36/300 | 統一郎 | hidden/toichiro/ | 澄奈 |
+| 35/300 | 特別保存 | hidden/tokubestu/ | 奈瀬統一郎 |
+| 36/300 | 奈瀬統一郎 | hidden/toichiro/ | 澄奈 |
 | 37/300 | 澄奈 | hidden/suminashi/ | 令和三年 |
 | 38/300 | 令和三年 | hidden/r3/ | 封印 |
 | 39/300 | 封印 | hidden/fuuin/ | 白紙 |
@@ -38,9 +38,9 @@
 | 48/300 | 断絶 | hidden/danzetsu/ | 蔵書白紙 | A | |
 | 49/300 | 蔵書白紙 | hidden/zoshohakushi/ | 封印崩壊 | B | |
 | 50/300 | 封印崩壊 | hidden/fuuinhoukai/ | 地下二階 | A | |
-| 51/300 | 地下二階 | hidden/chikanikai/ | 奈瀬統一郎 | D | |
-| 52/300 | 奈瀬統一郎 | hidden/toichironase/ | 白奈文香 | B | |
-| 53/300 | 白奈文香 | hidden/shirana-fumika/ | 梶原瑞穂 | A | |
+| 51/300 | 地下二階 | hidden/chikanikai/ | 最終入室 | D | |
+| 52/300 | 最終入室 | hidden/toichironase/ | 後任指名 | B | |
+| 53/300 | 後任指名 | hidden/shirana-fumika/ | 梶原瑞穂 | A | |
 | 54/300 | 梶原瑞穂 | hidden/kajiwara-mizuho/ | 主任司書 | B | |
 | 55/300 | 主任司書 | hidden/shuninshisho/ | 閲覧制限 | D | |
 | 56/300 | 閲覧制限 | hidden/etsuranseigen/ | 削除済み | A | |
