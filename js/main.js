@@ -213,7 +213,11 @@
     if (hiddenKeywords[q]) {
       msg.innerHTML = 'SEARCHING...';
       setTimeout(function() {
-        window.location.href = prefix + hiddenKeywords[q];
+        if (q === '儀式' && !localStorage.getItem('layer2_seen')) {
+          window.location.href = prefix + 'hidden/transition/index.html';
+        } else {
+          window.location.href = prefix + hiddenKeywords[q];
+        }
       }, 800);
     } else {
       msg.textContent = '該当なし';
