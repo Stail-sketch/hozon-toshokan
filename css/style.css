@@ -336,6 +336,22 @@ hr {
   color: #8898a8;
 }
 
+.footer-links {
+  font-size: 10px;
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid #2a4a6c;
+}
+.footer-links a {
+  color: #8898a8;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.footer-links a:hover {
+  color: #c8d8e8;
+  text-decoration: underline;
+}
+
 /* ページ番号 */
 #page-number {
   position: fixed;
