@@ -359,11 +359,11 @@ hr {
   left: 16px;
   font-family: "Courier New", monospace;
   font-size: 15px;
-  color: #b8c8e0;
+  color: #3a4050;
   letter-spacing: 2px;
   z-index: 100;
   font-weight: bold;
-  text-shadow: 0 0 8px rgba(184, 200, 224, 0.4);
+  text-shadow: 0 0 6px rgba(58, 64, 80, 0.3);
 }
 
 /* フィクション表記（極小・目立たない） */
