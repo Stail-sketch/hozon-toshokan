@@ -195,14 +195,6 @@
 
   .doc-item:last-child { border-bottom: none; }
 
-  .doc-ref {
-    color: #005a18;
-    font-size: 11px;
-    margin-right: 10px;
-    display: inline-block;
-    min-width: 130px;
-  }
-
   .doc-name { color: #00bb30; }
 
   .doc-status {
@@ -228,7 +220,6 @@
   }
 
   .redacted-row { color: #0a1a0c; }
-  .redacted-ref { color: #081008; }
 
   /* システム状態 */
   .sys-row {
@@ -310,42 +301,34 @@
     <div class="term-section-title">▌ 内部報告書一覧</div>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-ref">[REF: SP-0001]</span>
         <span class="doc-name">処理台帳 原本（昭和32年度〜）</span>
         <span class="doc-status" style="color:#00cc35;">[ACCESS: AVAILABLE]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: NB-9001]</span>
         <span class="doc-name">奈瀬家寄贈資料 詳細目録（未公開分）</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: B-0099]</span>
         <span class="doc-name">地下書庫 完全管理記録（B1F〜B3F）</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: IN-FINAL]</span>
         <span class="doc-name">司書失踪事案 内部調査 最終報告書</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: FS-CHAIN]</span>
         <span class="doc-name">封印管理 歴代引継記録（第一代〜最終）</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: DIR-LAST]</span>
         <span class="doc-name">館長職 最終引継文書（奈瀬統一郎→後継者未定）</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item">
-        <span class="doc-ref">[REF: SYS-LOG]</span>
         <span class="doc-name">蔵書管理システム ログ記録（2021.03.14分）</span>
         <span class="doc-status">[ACCESS: RESTRICTED]</span>
       </li>
       <li class="doc-item redacted-row">
-        <span class="doc-ref redacted-ref">[REF: ████████]</span>
         <span>████████████████████████████████████████</span>
         <span class="doc-status" style="color:#081008;">[ACCESS: ████]</span>
       </li>
@@ -477,7 +460,23 @@ function showNextBootLine() {
   setTimeout(showNextBootLine, delay);
 }
 
-showNextBootLine();
+// ブート演出：初回のみ表示、2回目以降はスキップ
+if (sessionStorage.getItem('bootShown')) {
+  document.getElementById('boot-screen').style.display = 'none';
+  var main = document.getElementById('main-terminal');
+  main.style.display = 'block';
+  main.style.opacity = '1';
+} else {
+  showNextBootLine();
+  // アニメーション完了後にフラグをセット（最終行表示後）
+  var totalDelay = 0;
+  bootLines.forEach(function(line) {
+    if (line.indexOf('......') !== -1) totalDelay += 380;
+    else if (line === '') totalDelay += 25;
+    else totalDelay += 55;
+  });
+  setTimeout(function() { sessionStorage.setItem('bootShown', '1'); }, totalDelay);
+}
 
 // ── 職員専用キーワード検索 ─────────────────────────────────────
 // Layer4〜5実装後にここへキーワードを追加する
